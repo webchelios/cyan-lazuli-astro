@@ -1,0 +1,60 @@
+---
+interface Props {
+    title: string;
+    img: string[];
+}
+
+const { title, img } = Astro.props
+---
+<div>
+    <h2>{title}</h2>
+    <div class="img-container">
+        {
+            img.map(i => (
+                <img src={i} alt={title} />
+            ))
+        }
+    </div>
+    <slot />
+</div>
+
+<style>
+
+h2 {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: .5rem;
+    background-color: var(--main-color);
+    bottom: 0;
+    left: 0;
+    z-index: -1; 
+}
+
+img {
+    max-width: 100%;
+}
+
+.img-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+}
+
+@media screen and (min-width: 765px) {
+    .img-container {
+        margin: 2rem;
+    }
+    .img-container img {
+        width: 40rem;
+        margin: auto;
+    }
+}
+</style>

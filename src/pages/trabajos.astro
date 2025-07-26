@@ -1,0 +1,48 @@
+---
+import Work from "../components/Work.astro";
+import Layout from "../layouts/Layout.astro";
+
+---
+<Layout>
+    <div class="container">
+        <h1>Trabajos</h1>
+        <hr>
+        <Work
+            title='"El Saltador"'
+            img={["images/el-saltador.jpg", "images/IMG_20250531_202937.jpg"]}
+        >
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ut, architecto eum quo aut quidem. Dolorum, non eaque numquam, omnis tenetur qui voluptates, magnam hic voluptatum facere doloribus fuga aspernatur.</p>
+        </Work>
+        <hr>
+        <Work
+            title='"Manos"'
+            img={["images/pa-1-1.jpg"]}
+        >
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ut, architecto eum quo aut quidem. Dolorum, non eaque numquam, omnis tenetur qui voluptates, magnam hic voluptatum facere doloribus fuga aspernatur.</p>
+        </Work>
+        <hr>
+        <Work
+            title='"Trabajo de ejemplo"'
+            img={["images/IMG_20250531_203250.jpg"]}
+        >
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ut, architecto eum quo aut quidem. Dolorum, non eaque numquam, omnis tenetur qui voluptates, magnam hic voluptatum facere doloribus fuga aspernatur.</p>
+        </Work>
+    </div>
+</Layout>
+
+<style>
+hr {
+    border-color: gray;
+}
+.container {
+	padding: 0 2rem;
+}
+
+.container p {
+    text-align: justify;
+}
+
+p {
+    text-indent: 10px;
+}
+</style>
