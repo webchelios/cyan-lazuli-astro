@@ -11,7 +11,7 @@ const { title, img } = Astro.props
     <div class="img-container">
         {
             img.map(i => (
-                <img src={i} alt={title} />
+                <img src={` ../images/${i} `} alt={title} />
             ))
         }
     </div>
