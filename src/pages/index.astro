@@ -82,16 +82,16 @@ import Layout from "../layouts/Layout.astro";
 
 @keyframes atention {
 	0% {
-		opacity: 1;
+		filter: brightness(1);
 	}
 	50% {
-		opacity: 1;
+		filter: brightness(1);
 	}
 	60% {
-		opacity: .4;
+		filter: brightness(1.50);
 	}
 	50%{
-		opacity: 1;
+		filter: brightness(1);
 	}
 }
 
@@ -130,6 +130,10 @@ import Layout from "../layouts/Layout.astro";
 	.hero-text {
 		margin: 0;
 		padding: 0;
+	}
+
+	.hero-text {
+		text-align: left;
 	}
 }
 </style>
