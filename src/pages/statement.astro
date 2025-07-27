@@ -16,11 +16,13 @@ import Layout from "../layouts/Layout.astro";
 <style>
 .container {
 	padding: 0 2rem;
+    animation: appear 1s ease;
 }
 
 .container h1 {
     position: relative;
     z-index: 1;
+    font-family: "Encode", sans-serif;
 }
 
 .container p {
@@ -38,6 +40,17 @@ import Layout from "../layouts/Layout.astro";
     width: 4rem;
     top: -6rem;
     left: -1rem;
+}
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 </style>

@@ -31,11 +31,16 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+h1 {
+    font-family: "Encode", sans-serif;
+}
+
 hr {
     border-color: gray;
 }
 .container {
 	padding: 0 2rem;
+    animation: appear 1s ease;
 }
 
 .container p {
@@ -44,5 +49,16 @@ hr {
 
 p {
     text-indent: 10px;
+}
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 </style>
