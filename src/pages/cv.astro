@@ -4,72 +4,80 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
     <div class="container">
-        <p>Artísta visual</p>
-        <h1>Cyan<br />Lázuli</h1>
-        <p>
-            Apasionada artista emergente con formación en Artes Visuales y
-            especialización en Pintura. Interesada y abocada al Grabado y al
-            Arte Impreso, al igual que al Arte Contemporáneo. Me encantan los
-            desafíos y llevar mi arte a terrenos inexplorados.
-        </p>
+        <div class="intro">
+            <p>Artísta visual</p>
+            <h1>Cyan<br />Lázuli</h1>
+            <p>
+                Apasionada artista emergente con formación en Artes Visuales y
+                especialización en Pintura. Interesada y abocada al Grabado y al
+                Arte Impreso, al igual que al Arte Contemporáneo. Me encantan
+                los desafíos y llevar mi arte a terrenos inexplorados.
+            </p>
+        </div>
 
-        <h2>Experiencia</h2>
-        <ul>
-            <li>
-                <b>Súper Mínima - Muestra colectiva de pequeño formato (2025)</b
-                ><br />
-                Galería social Rímini<br />
-                Galería de arte<br />
-                Necochea 1234 La Boca, CABA
-            </li>
-            <li>
-                <b>Open Nights - Muestra colectiva (2023)</b><br />
-                The Open Gallery<br />
-                Galería de arte<br />
-                Honduras 5256 Palermo, CABA
-            </li>
-        </ul>
+        <div class="experience-section">
+            <h2>Experiencia</h2>
+            <ul>
+                <li>
+                    <b
+                        >Súper Mínima - Muestra colectiva de pequeño formato
+                        (2025)</b
+                    ><br />
+                    Galería social Rímini<br />
+                    Galería de arte<br />
+                    Necochea 1234 La Boca, CABA
+                </li>
+                <li>
+                    <b>Open Nights - Muestra colectiva (2023)</b><br />
+                    The Open Gallery<br />
+                    Galería de arte<br />
+                    Honduras 5256 Palermo, CABA
+                </li>
+            </ul>
 
-        <h2>Formación</h2>
-        <ul>
-            <li>
-                Asesoría artística por Hijas del Arte Agency<br />
-                Asesoría para artistas especialidada en Marketing cultural y comunicación
-                digital<br />
-                Palermo, CABA
-            </li>
-            <li>
-                Taller de experimentación artística "Trama"<br />
-                Museo de Arte Moderno de Buenos Aires
-            </li>
-            <li>
-                Maquillaje artístico y teatral<br />
-                Escuela de Arte Leopoldo Marechal
-            </li>
-        </ul>
+            <h2>Formación</h2>
+            <ul>
+                <li>
+                    Asesoría artística por Hijas del Arte Agency<br />
+                    Asesoría para artistas especialidada en Marketing cultural y
+                    comunicación digital<br />
+                    Palermo, CABA
+                </li>
+                <li>
+                    Taller de experimentación artística "Trama"<br />
+                    Museo de Arte Moderno de Buenos Aires
+                </li>
+                <li>
+                    Maquillaje artístico y teatral<br />
+                    Escuela de Arte Leopoldo Marechal
+                </li>
+            </ul>
+        </div>
 
-        <h2>Educación</h2>
-        <ul>
-            <li>Escuela de Arte Leopoldo Marechal 2017 - 2025</li>
-            <li>Profesorado de Artes Visuales</li>
-        </ul>
+        <div class="details-section">
+            <h2>Educación</h2>
+            <ul>
+                <li>Escuela de Arte Leopoldo Marechal 2017 - 2025</li>
+                <li>Profesorado de Artes Visuales</li>
+            </ul>
 
-        <h2>Contacto</h2>
-        <ul>
-            <li>IG: @cyanlazuli_arte</li>
-            <li>cyanlazuli.arte@gmail.com</li>
-            <li>Buenos Aires, Argentina</li>
-        </ul>
+            <h2>Contacto</h2>
+            <ul>
+                <li>IG: @cyanlazuli_arte</li>
+                <li>cyanlazuli.arte@gmail.com</li>
+                <li>Buenos Aires, Argentina</li>
+            </ul>
 
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Pintura</li>
-            <li>Grabado</li>
-            <li>Dibujo</li>
-            <li>Happening</li>
-            <li>Instalación</li>
-            <li>Escultura</li>
-        </ul>
+            <h2>Habilidades</h2>
+            <ul>
+                <li>Pintura</li>
+                <li>Grabado</li>
+                <li>Dibujo</li>
+                <li>Happening</li>
+                <li>Instalación</li>
+                <li>Escultura</li>
+            </ul>
+        </div>
     </div>
 </Layout>
 
@@ -80,6 +88,9 @@ import Layout from "../layouts/Layout.astro";
     .container {
         padding: 0 2rem;
         animation: appear 1s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 
     li {
@@ -98,5 +109,26 @@ import Layout from "../layouts/Layout.astro";
     }
 
     @media screen and (min-width: 700px) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2rem;
+        }
+
+        .intro {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .experience-section {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+
+        .details-section {
+            grid-column: 1;
+            grid-row: 2;
+        }
     }
 </style>
