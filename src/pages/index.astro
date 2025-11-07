@@ -1,137 +1,142 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
-<Layout>
-	<div class="home-container">
-		<h1 class="main-h1">Bienvenid@</h1>
-		<div class="cols">
-			<div class="col-left">
-				<div class="hero-img">
-					<img src="./images/profile-crop.png" alt="Imagen hero">
-				</div>
-				
-			</div>
-			<div class="col-right">
-				<p class="hero-text">Este es mi sitio web, sentite bienvenid@ de ver mis trabajos. Aquí publico mis pensamientos acerca de la realidad de ser Artista y también subo mis obras a mi galería de arte web. Podés descargar mi CV para ver mi experiencia y si querés saber más sobre mí entrá a la sección "Bio".</p>
-				<a href="/trabajos" class="hero-button">Ver trabajos</a>
-			</div>
 
-		</div>
-	</div>
+<Layout>
+    <div class="home-container">
+        <h1 class="main-h1">Bienvenid@</h1>
+        <div class="cols">
+            <div class="col-left">
+                <div class="hero-img">
+                    <img src="./images/profile-crop.png" alt="Imagen hero" />
+                </div>
+            </div>
+            <div class="col-right">
+                <p class="hero-text">
+                    Este es mi sitio web, sentite bienvenid@ de ver mis
+                    trabajos. Aquí publico mis pensamientos acerca de la
+                    realidad de ser Artista y también subo mis obras a mi
+                    galería de arte web. Podés descargar mi CV para ver mi
+                    experiencia y si querés saber más sobre mí entrá a la
+                    sección "Bio".
+                </p>
+                <a href="/trabajos" class="hero-button">Ver trabajos</a>
+            </div>
+        </div>
+    </div>
 </Layout>
 
 <style>
-.main-h1 {
-	text-align: center;
-	font-family: "Encode", sans-serif;
-}
+    .main-h1 {
+        text-align: center;
+        font-family: "Encode", sans-serif;
+    }
 
-.home-container {
-	animation: appear 1s ease;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
+    .home-container {
+        animation: appear 1s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
-.home-container h1 {
-	margin-bottom: 1rem;
-}
+    .home-container h1 {
+        margin-bottom: 1rem;
+    }
 
+    @keyframes appear {
+        0% {
+            opacity: 0;
+            transform: translateY(1rem);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-@keyframes appear {
-	0% {
-		opacity: 0;
-		transform: translateY(1rem);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
+    .hero-text {
+        margin-top: 1.2rem;
+        text-align: center;
+        max-width: 40rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        text-indent: 0.4rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-.hero-text {
-	margin-top: 1.2rem;
-	text-align: center;
-	max-width: 40rem;
-	padding-left: 2rem;
-	padding-right: 2rem;
-	text-indent: .4rem;
-	margin-left: auto;
-	margin-right: auto;
-}
+    .hero-button {
+        display: block;
+        width: fit-content;
+        background-color: var(--main-color);
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity;
+        animation: atention 4s ease infinite;
+    }
 
-.hero-button {
-	display: block;
-	width: fit-content;
-	background-color: var(--main-color);
-	padding: .5rem .8rem;
-	border-radius: .5rem;
-	margin-top: 1rem;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	cursor: pointer;
-	color: white;
-	text-decoration: none;
-	font-weight: 500;
-	transition: opacity;
-	animation: atention 4s ease infinite;
-}
+    @keyframes atention {
+        0% {
+            filter: brightness(1);
+        }
+        50% {
+            filter: brightness(1);
+        }
+        60% {
+            filter: brightness(1.5);
+        }
+        50% {
+            filter: brightness(1);
+        }
+    }
 
-@keyframes atention {
-	0% {
-		filter: brightness(1);
-	}
-	50% {
-		filter: brightness(1);
-	}
-	60% {
-		filter: brightness(1.50);
-	}
-	50%{
-		filter: brightness(1);
-	}
-}
+    .hero-img {
+        display: flex;
+        justify-content: center;
+    }
 
-.hero-img {
-	display: flex;
-	justify-content: center;
-}
+    .hero-img img {
+        max-width: 100%;
+        width: 15rem;
+        object-fit: cover;
+        border-radius: 100%;
+        border: 10px solid var(--main-color);
+    }
 
-.hero-img img {
-	max-width: 100%;
-	width: 15rem;
-	object-fit: cover;
-	border-radius: 100%;
-	border: 10px solid var(--main-color);
-}
+    @media screen and (min-width: 765px) {
+        .cols {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-@media screen and (min-width: 765px) {
-	.cols {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+        .col-left {
+            margin: 2rem;
+        }
 
-	.col-left {
-		margin: 2rem;
-	}
-	
-	.col-right {
-		margin: 2rem;
-	}
+        .col-right {
+            margin: 2rem;
+        }
 
-	.hero-button {
-		margin-left: 0;
-	}
+        .hero-button {
+            margin-left: 0;
+        }
 
-	.hero-text {
-		margin: 0;
-		padding: 0;
-	}
+        .hero-text {
+            margin: 0;
+            padding: 0;
+        }
 
-	.hero-text {
-		text-align: left;
-	}
-}
+        .hero-text {
+            text-align: left;
+        }
+    }
 </style>
