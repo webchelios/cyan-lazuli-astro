@@ -4,57 +4,93 @@ interface Props {
     img: string[];
 }
 
-const { title, img } = Astro.props
+const { title, img } = Astro.props;
 ---
+
 <div>
-    <h2>{title}</h2>
+    <div class="title-container">
+        <h2>{title}</h2>
+        <div class="zoom-button">
+            <a href=""><img src="./zoom-in.svg" alt="ver trabajo" /></a>
+        </div>
+    </div>
+
     <div class="img-container">
-        {
-            img.map(i => (
-                <img src={` ../images/${i} `} alt={title} />
-            ))
-        }
+        {img.map((i) => <img src={` ../images/${i} `} alt={title} />)}
     </div>
     <slot />
 </div>
 
 <style>
+    .title-container {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    h2 {
+        position: relative;
+        display: inline-block;
+        z-index: 2;
+    }
 
-h2 {
-    position: relative;
-    display: inline-block;
-    z-index: 2;
-}
+    h2::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 0.5rem;
+        background-color: var(--main-color);
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
 
-h2::after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: .5rem;
-    background-color: var(--main-color);
-    bottom: 0;
-    left: 0;
-    z-index: -1; 
-}
+    img {
+        max-width: 100%;
+    }
 
-img {
-    max-width: 100%;
-}
-
-.img-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-}
-
-@media screen and (min-width: 765px) {
     .img-container {
-        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
     }
-    .img-container img {
-        width: 40rem;
-        margin: auto;
+    2 .zoom-button {
+        background-color: var(--main-color);
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-}
+
+    .zoom-button a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .zoom-button img {
+        width: 1.8rem;
+        height: 1.8rem;
+        filter: brightness(0) invert(1);
+    }
+
+    @media screen and (min-width: 765px) {
+        .img-container {
+            margin: 2rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .img-container img {
+            width: 20rem;
+            height: auto;
+            margin: auto;
+        }
+    }
 </style>
