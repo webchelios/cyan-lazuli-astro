@@ -43,14 +43,21 @@
     document.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.querySelector(".nav-toggle");
         const menuList = document.querySelector(".nav-items");
+
         menuToggle?.addEventListener("click", () => {
             menuToggle.classList.toggle("active");
             menuList?.classList.toggle("invisible");
         });
-        // menuList?.addEventListener('click', () => {
-        //     menuToggle?.classList.toggle('invisible')
-        //     menuList.classList.toggle('active')
-        // })
+
+        const currentPath = window.location.pathname.replace(/\/$/, "");
+
+        document.querySelectorAll("nav a[href]").forEach((link) => {
+            const linkPath = link.getAttribute("href")?.replace(/\/$/, "");
+
+            if (linkPath === currentPath) {
+                link.classList.add("current");
+            }
+        });
     });
 </script>
 
@@ -155,6 +162,11 @@
         width: 2rem;
         margin-right: 5px;
         vertical-align: -0.6rem;
+    }
+
+    .nav-items a.current,
+    .nav-items-lg a.current {
+        color: var(--main-color);
     }
 
     @media screen and (min-width: 700px) {
