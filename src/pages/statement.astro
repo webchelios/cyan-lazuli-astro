@@ -87,8 +87,16 @@ import Layout from "../layouts/Layout.astro";
     }
 
     @media screen and (min-width: 700px) {
+        .container h1 {
+            text-align: center;
+        }
+        .quote {
+            display: none;
+        }
         .container p {
             text-align: left;
+            margin: 0 auto;
+            max-width: 920px;
         }
     }
 </style>
