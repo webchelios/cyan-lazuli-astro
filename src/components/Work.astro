@@ -2,9 +2,10 @@
 interface Props {
     title: string;
     img: string[];
+    description: string;
 }
 
-const { title, img } = Astro.props;
+const { title, img, description } = Astro.props;
 ---
 
 <div>
@@ -16,7 +17,16 @@ const { title, img } = Astro.props;
     </div>
 
     <div class="img-container">
-        {img.map((i) => <img src={` ../images/${i} `} alt={title} />)}
+        {
+            img.map((i) => (
+                <div class="img-wrapper" data-active="false">
+                    <img src={`../images/${i}`} alt={title} />
+                    <div class="img-caption">
+                        <p>{description}</p>
+                    </div>
+                </div>
+            ))
+        }
     </div>
     <slot />
 </div>
@@ -76,6 +86,35 @@ const { title, img } = Astro.props;
         width: 1.8rem;
         height: 1.8rem;
         filter: brightness(0) invert(1);
+    }
+
+    .img-wrapper {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .img-caption {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    @media (hover: hover) {
+        .img-wrapper:hover .img-caption {
+            opacity: 1;
+        }
+    }
+
+    .img-wrapper[data-active="true"] .img-caption {
+        opacity: 1;
     }
 
     @media screen and (min-width: 765px) {
